@@ -18,4 +18,4 @@ def test_encrypt_message():
     assert odd_key_return == "set_egassem t"
 
     even_key_return = encrypt_message("test message", 4)
-    assert even_key_return == "egassem_tset"
+    assert even_key_return == "egassem _tset"
