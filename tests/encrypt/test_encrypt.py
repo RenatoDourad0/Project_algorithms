@@ -3,13 +3,13 @@ import pytest
 
 
 def test_encrypt_message():
-    with pytest.raises(TypeError) as error:
+    with pytest.raises(TypeError) as error1:
         encrypt_message("testmesssage", "1")
-        assert "tipo inválido para key" in str(error.value)
+    assert "tipo inválido para key" in str(error1.value)
 
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as error2:
         encrypt_message(55, 1)
-        assert "tipo inválido para message" in str(error.value)
+    assert "tipo inválido para message" in str(error2.value)
 
     key_out_of_range_return = encrypt_message("test message", 22)
     assert key_out_of_range_return == "egassem tset"
