@@ -1,13 +1,13 @@
-def study_schedule(permanence_period, target_time):
-    if target_time is None:
-        return None
-    active_users = 0
-    for period in permanence_period:
-        if target_time in list(range(period[0], period[1])):
-            print(target_time, list(range(period[0], period[1])))
-            active_users += 1
-    return active_users
+def is_palindrome_recursive(word, low_index, high_index):
+    print("call")
+    if not len(word):
+        return False
+    if low_index >= high_index or word[low_index] != word[high_index]:
+        return False
+    if word[low_index] == word[high_index]:
+        low_index += 1
+        high_index -= 1
+        is_palindrome_recursive(word, low_index, high_index)
 
 
-permanence_period = [(2, 2), (1, 2), (2, 3), (1, 5), (4, 5), (4, 5)]
-print(study_schedule(permanence_period, 5))
+print(is_palindrome_recursive("agua", 0, 3))
