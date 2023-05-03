@@ -1,13 +1,29 @@
-def is_palindrome_recursive(word, low_index, high_index):
-    print("call")
-    if not len(word):
-        return False
-    if low_index >= high_index or word[low_index] != word[high_index]:
-        return False
-    if word[low_index] == word[high_index]:
-        low_index += 1
-        high_index -= 1
-        is_palindrome_recursive(word, low_index, high_index)
+def partition(array, low, high):
+    pivot = array[high]
+    i = low - 1
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i = i + 1
+            (array[i], array[j]) = (array[j], array[i])
+
+    (array[i + 1], array[high]) = (array[high], array[i + 1])
+    return i + 1
 
 
-print(is_palindrome_recursive("agua", 0, 3))
+def quickSort(array, low, high):
+    if low < high:
+        pi = partition(array, low, high)
+        quickSort(array, low, pi - 1)
+        quickSort(array, pi + 1, high)
+
+
+data = [1, 7, 4, 1, 10, 9, -2]
+print("Unsorted Array")
+print(data)
+
+size = len(data)
+
+quickSort(data, 0, size - 1)
+
+print("Sorted Array in Ascending Order:")
+print(data)
