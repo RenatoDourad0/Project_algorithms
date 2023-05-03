@@ -17,18 +17,6 @@ def quickSort(array, low, high):
         quickSort(array, pi + 1, high)
 
 
-# data = [1, 7, 4, 1, 10, 9, -2]
-# print("Unsorted Array")
-# print(data)
-
-# size = len(data)
-
-# quickSort(data, 0, size - 1)
-
-# print("Sorted Array in Ascending Order:")
-# print(data)
-
-
 def is_anagram(first_string: str, second_string: str):
     if len(first_string) == 0 and len(second_string) == 0:
         return (first_string, second_string, False)
